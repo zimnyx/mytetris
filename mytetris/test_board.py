@@ -83,19 +83,3 @@ class BoardTest(unittest.TestCase):
         with self.assertRaises(BoardBoundaryCrossed):
             board.with_shape(shape, 1,7)
 
-    def test_ah(self):
-        board = Board(8,8)
-        fields = [
-            [False, False, False, False, False, False, False, False],
-            [False, False, False, False, False, False, False, False],
-            [False, False, False, False, False, False, False, False],
-            [False, False, False, False, False, False, False, False],
-            [False, False, False, True, True, False, False, False],
-            [False, False, False, True, True, False, False, False],
-            [False, False, False, True, True, False, False, False],
-            [False, False, False, True, True, False, False, False],
-        ]
-        board.set_fields(fields)
-        data = '* *\n***\n  *'
-        shape = Shape.parse_from_string(data, '*')
-        board.with_shape(shape, 2,4)
